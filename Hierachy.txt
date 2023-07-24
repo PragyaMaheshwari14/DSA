@@ -3,3 +3,4 @@
 3. Recursion
 4. Divide&Conquer
 5.Backtracking
+6. Arraylist
