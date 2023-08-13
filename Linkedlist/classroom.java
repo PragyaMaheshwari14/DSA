@@ -3,7 +3,7 @@ import java.util.LinkedList;
 public class classroom {
      public static void main(String args[]){
         //create -objects (int, float(not use) )-> Integer , Float
-       LinkedList<Integer>ll = new LinkedList();
+       LinkedList<Integer>ll = new LinkedList<>();
 
         //add
         ll.addLast(1);
