@@ -1,4 +1,4 @@
-public class BuildTreePreorder {
+public class BuildTree {
     static class Node {
         int data;
         Node left;
