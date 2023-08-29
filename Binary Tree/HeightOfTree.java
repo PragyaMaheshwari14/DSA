@@ -32,17 +32,36 @@ public class HeightOfTree {
         int rightsum = sumOfNodes(root.right);
         return leftsum+rightsum+ root.data;
     }
-    public static int diameter(Node root) { //O(N^2)
+    public static int diameter2(Node root) { //O(N^2)
         if(root == null) {
             return 0;
         }
-        int leftDiam = diameter(root.left);
+        int leftDiam = diameter2(root.left);
         int leftHeight = height(root.left);
-        int rightDiam = diameter(root.right);
+        int rightDiam = diameter2(root.right);
         int rightHeight = height(root.right);
         
         int selfDiam =  leftHeight + rightHeight + 1; 
         return  Math.max(selfDiam , Math.max(leftDiam , rightDiam));
+    }
+    //Diameter Approach //O(n)
+    static class Info {
+        int diam;
+        int ht;
+        public Info(int diam , int ht) {
+            this.diam = diam;
+            this.ht = ht;
+        }
+    }
+    public static Info diameter(Node root) {
+        if(root == null ) {
+            return new  Info(0,0);
+        }
+        Info leftInfo = diameter(root.left);
+        Info rightInfo = diameter(root.right);
+        int diam = Math.max(Math.max(leftInfo.diam , rightInfo.diam ) , leftInfo.ht +rightInfo.ht + 1 );
+        int  ht = Math.max(leftInfo.ht , rightInfo.ht) + 1;
+        return new Info(diam ,ht);
     }
     public static void main(String args[]) {
         /*
@@ -63,6 +82,7 @@ public class HeightOfTree {
       //   System.out.println(height(root)); 
       //   System.out.println(count(root));
       //   System.out.println(sumOfNodes(root));
-           System.out.println(diameter(root));
+      //   System.out.println(diameter2(root));
+           System.out.println(diameter(root).diam);
     } 
 }
