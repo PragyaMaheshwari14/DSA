@@ -63,6 +63,7 @@ public class HeightOfTree {
         int  ht = Math.max(leftInfo.ht , rightInfo.ht) + 1;
         return new Info(diam ,ht);
     }
+    
     public static void main(String args[]) {
         /*
                   1
