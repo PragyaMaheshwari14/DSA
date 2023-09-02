@@ -62,7 +62,7 @@ public class LowestCommonAncestor {
         return root;
     }
     public static void main(String args[]) {
-        /*
+         /*
                    1
                  /   \    
                2       3
@@ -75,7 +75,7 @@ public class LowestCommonAncestor {
       root.left.left = new Node(4);
       root.left.right = new Node(5);
       root.right.left = new Node(6);
-      root.right.right = new Node(7); 
+      root.right.right = new Node(7);
       int n1 = 4 , n2 = 5;
      // System.out.println(lca(root, n1, n2).data);
         System.out.println(lca2(root, n1, n2).data);
