@@ -17,10 +17,9 @@ public class PriorityQueues {
         }
     }
     public static void main(String args[]) {
-      // PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
-       PriorityQueue<Student> pq = new PriorityQueue<>();
+      // PriorityQueue<Student> pq = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Student> pq = new PriorityQueue<>();
       
-
         pq.add(new Student("A", 4)); //O(logn)
         pq.add(new Student("B", 5));
         pq.add(new Student("C", 2));
