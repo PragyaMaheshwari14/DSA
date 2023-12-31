@@ -82,8 +82,8 @@ public class DFSCode {
          int V = 7;
          ArrayList<Edge> graph[] = new ArrayList[V];
          createGraph(graph);
-         dfs(graph, 0, new boolean[V]);
-        System.out.println( hasPath(graph, 0, 5, new boolean[V]));
+         dfs(graph, 0 , new boolean[V]);
+        System.out.println( "has path is"+hasPath(graph, 0, 5, new boolean[V]));
          
     }
 }
