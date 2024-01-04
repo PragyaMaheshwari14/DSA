@@ -1,5 +1,23 @@
 public class O_1Knapsack {
-    // O(n * W )
+
+    // Recursion ;O(2^n)
+     public static int knapsackRecu(int val[], int wt[], int W, int n ){
+        if( W == 0 || n ==0 ){
+            return 0;
+        }
+
+        if(wt[n-1] <= W){ // valid
+           // include
+           int ans1 = val[n-1] + knapsackRecu(val, wt, W-wt[n-1], n-1 );
+          // exclude
+           int ans2 = knapsackRecu(val, wt, W, n-1 );
+            return   Math.max(ans1, ans2);
+        
+        } else { // not valid
+             return  knapsackRecu(val, wt, W, n-1);
+        }
+    }
+    // Memoization:O(n * W )
     public static int knapsack(int val[], int wt[], int W, int n ,int dp[][]){
         if( W == 0 || n ==0 ){
             return 0;
@@ -9,7 +27,7 @@ public class O_1Knapsack {
             return dp[n][W];
         }
 
-        if(wt[n-1] <= W){ // valis
+        if(wt[n-1] <= W){ // valid
            // include
            int ans1 = val[n-1] + knapsack(val, wt, W-wt[n-1], n-1 , dp);
           // exclude
@@ -22,7 +40,7 @@ public class O_1Knapsack {
         }
     }
 
-    public static void print(int dp[][]){
+    public static void print(int dp[][]){ // print the dp table
         for(int i=0; i<dp.length; i++){
             for(int j=0; j<dp[0].length; j++){
                 System.out.print(dp[i][j]+ " ");
@@ -31,7 +49,7 @@ public class O_1Knapsack {
         }
         System.out.println();
     }
-
+ // Tabulization
     public static int knapsackTab(int val[] ,int wt[] , int W){
         int n = val.length;
         int dp[][] = new int [n+1] [W+1];
@@ -72,6 +90,7 @@ public class O_1Knapsack {
         }
         System.out.println(knapsack(val, wt, W, val.length ,dp ));
         System.out.println(knapsackTab(val, wt, W));
+        System.out.println(knapsackRecu(val, wt, W, val.length));
         
     }
 }
