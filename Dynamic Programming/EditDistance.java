@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class EditDistance {
     public static int editDistance(String str1, String str2){
          int n = str1.length();
